@@ -1,0 +1,16 @@
+# Node.js
+node_modules/
+.env
+*.log
+dist/
+build/
+.DS_Store
+npm-debug.log*
+.vscode/
+*.local
+*.cache
+*.sqlite
+*.sqlite3
+coverage/
+.bloomfilter.dat
+bloomfilter.dat
