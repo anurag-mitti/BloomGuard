@@ -1,5 +1,6 @@
 const murmurhash = require('murmurhash3js');
 
+
 class BloomFilter {
     constructor(size, hashFunctions) {
         this.size = size;
@@ -38,6 +39,6 @@ class BloomFilter {
 }
 
 
-const bloomFilterInstance= new BloomFilter(1000,5)
+const inmemBloomFilterInstance= new BloomFilter(1000,5)
 
-module.exports= bloomFilterInstance;
+module.exports= inmemBloomFilterInstance;

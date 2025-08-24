@@ -39,7 +39,7 @@ async function redisBloom(value) {
     const res = await existsInDb(value);
     if (res) { 
       await rejected(value) //upate
-      console.log("the user name is take, please try another one");
+      console.log("the user name is taken, please try another one");
       return { message: "The user name is taken, please try another one" };
     } else {
        await ins(value, id); // put the uuid here
