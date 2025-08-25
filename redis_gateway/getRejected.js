@@ -23,6 +23,6 @@ async function getRejected() {
 module.exports = getRejected;
 
 
-getRejected().then((list) => {
-  if (list) console.log(list);
-});
+// getRejected().then((list) => {
+//   if (list) console.log(list);
+// });

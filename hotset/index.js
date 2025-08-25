@@ -6,12 +6,12 @@ async function updateRejected() {
     const list = await getRejected();
     list.forEach((value) => {
       if (typeof value === 'string') {
-        inmem.add(value);  // Added each string individually, was getting type error
+        inmem.add(value);  // Added each string individually, was getting type error, before adding something somewhee always first check out the type and then fitlter and add it 
       } else {
-        console.warn('Invalid type detected:', typeof value, value);
+        console.warn('Improper type detected , did not update the hotset', typeof value, value);
       }
     });
-    console.log(`Updated Bloom filter with ${list.length} rejected keys.`);
+    console.log(`Updated  the in mem Bloom filter with ${list.length} rejected keys.`);
   } catch (error) {
     console.error('Error updating rejected keys:', error);
   }

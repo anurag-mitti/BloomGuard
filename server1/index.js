@@ -19,23 +19,21 @@ app.get("/check/:name", async (req, res) => {
     let response;
 
     if (!L1filter.check(value)) {
-      console.log(`'${value}' passed L1 check. Adding to all layers.`);
+      console.log(`'${value}' passed  the L1 check, adding to the remaining layers`);
       const client = await getClient();
 
       await Promise.all([
         ins(value, id),
-        client.bf.add("trial", value) //fucking hell had forgotten this , so second time when i added L1 filter said maybe and it wennt to L2 but this latest one i hadnt added to the redis bf so yeh
+        client.bf.add("trial", value), //fkin hell had forgotten this , so second time when i added L1 filter said maybe and it wennt to L2 but this latest one i hadnt added to the redis bf so yeh
       ]);
 
       L1filter.add(value);
 
       return res.send("User name available (L1)");
-
     } else {
       response = await L2filter(value);
       if (
-        response.message ===
-        "The user name is taken, please try another one"
+        response.message === "The user name is taken, please try another one"
       ) {
         await rejected(value);
       }
